@@ -26,7 +26,7 @@ s.source = { :git => "https://github.com/andrewsimpson4/lottieWatch.git",
 # 7
 s.framework = "UIKit"
 s.framework = "WatchConnectivity"
-s.dependency 'lottie-ios', '~> 4.7'
+s.dependency 'lottie-ios'
 
 # 8
 s.source_files = "lottieWatch/**/*.{swift}"
