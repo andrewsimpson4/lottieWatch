@@ -11,7 +11,7 @@ import UIKit
 import Lottie
 import WatchConnectivity
 
-class LWatch: NSObject, WCSessionDelegate {
+public class LWatch: NSObject, WCSessionDelegate {
     
     
     private var VC: UIViewController!
@@ -95,9 +95,9 @@ class LWatch: NSObject, WCSessionDelegate {
         }
     }
     
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) { }
-    func sessionDidBecomeInactive(_ session: WCSession) { }
-    func sessionDidDeactivate(_ session: WCSession) { }
+    public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) { }
+    public func sessionDidBecomeInactive(_ session: WCSession) { }
+    public func sessionDidDeactivate(_ session: WCSession) { }
     
     
     
