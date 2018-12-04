@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C72C7F1926910E94356BE86 /* Pods_lottieWatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17821689C4C75D47350597B /* Pods_lottieWatch.framework */; };
+		9408D106829CF6AF9BBD24DA /* Pods_lottieWatchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F66ECD38EC90F901C844D70 /* Pods_lottieWatchTests.framework */; };
 		FF32EE6921B6079A00CC3422 /* lottieWatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF32EE5F21B6079A00CC3422 /* lottieWatch.framework */; };
 		FF32EE6E21B6079A00CC3422 /* lottieWatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF32EE6D21B6079A00CC3422 /* lottieWatchTests.swift */; };
 		FF32EE7021B6079A00CC3422 /* lottieWatch.h in Headers */ = {isa = PBXBuildFile; fileRef = FF32EE6221B6079A00CC3422 /* lottieWatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FF32EE7A21B60C8000CC3422 /* lottieWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF32EE7921B60C8000CC3422 /* lottieWatch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +26,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15E44C52F186548CD709A1F2 /* Pods-lottieWatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lottieWatch.release.xcconfig"; path = "Pods/Target Support Files/Pods-lottieWatch/Pods-lottieWatch.release.xcconfig"; sourceTree = "<group>"; };
+		3F66ECD38EC90F901C844D70 /* Pods_lottieWatchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lottieWatchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1BBDCF97BA0C1F0E6D12BD9 /* Pods-lottieWatchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lottieWatchTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lottieWatchTests/Pods-lottieWatchTests.release.xcconfig"; sourceTree = "<group>"; };
+		E17821689C4C75D47350597B /* Pods_lottieWatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lottieWatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB6A5DD0A645BB2C3C28AC3D /* Pods-lottieWatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lottieWatch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lottieWatch/Pods-lottieWatch.debug.xcconfig"; sourceTree = "<group>"; };
+		F70740EB169D9B7B2FE84795 /* Pods-lottieWatchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lottieWatchTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lottieWatchTests/Pods-lottieWatchTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FF32EE5F21B6079A00CC3422 /* lottieWatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = lottieWatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF32EE6221B6079A00CC3422 /* lottieWatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lottieWatch.h; sourceTree = "<group>"; };
 		FF32EE6321B6079A00CC3422 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF32EE6821B6079A00CC3422 /* lottieWatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = lottieWatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF32EE6D21B6079A00CC3422 /* lottieWatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lottieWatchTests.swift; sourceTree = "<group>"; };
 		FF32EE6F21B6079A00CC3422 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF32EE7921B60C8000CC3422 /* lottieWatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lottieWatch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C72C7F1926910E94356BE86 /* Pods_lottieWatch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,18 +55,41 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF32EE6921B6079A00CC3422 /* lottieWatch.framework in Frameworks */,
+				9408D106829CF6AF9BBD24DA /* Pods_lottieWatchTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E988882B173500C48BFBEAC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EB6A5DD0A645BB2C3C28AC3D /* Pods-lottieWatch.debug.xcconfig */,
+				15E44C52F186548CD709A1F2 /* Pods-lottieWatch.release.xcconfig */,
+				F70740EB169D9B7B2FE84795 /* Pods-lottieWatchTests.debug.xcconfig */,
+				C1BBDCF97BA0C1F0E6D12BD9 /* Pods-lottieWatchTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A20590F1B909CBA34521A08B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E17821689C4C75D47350597B /* Pods_lottieWatch.framework */,
+				3F66ECD38EC90F901C844D70 /* Pods_lottieWatchTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FF32EE5521B6079A00CC3422 = {
 			isa = PBXGroup;
 			children = (
 				FF32EE6121B6079A00CC3422 /* lottieWatch */,
 				FF32EE6C21B6079A00CC3422 /* lottieWatchTests */,
 				FF32EE6021B6079A00CC3422 /* Products */,
+				8E988882B173500C48BFBEAC /* Pods */,
+				A20590F1B909CBA34521A08B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,6 +107,7 @@
 			children = (
 				FF32EE6221B6079A00CC3422 /* lottieWatch.h */,
 				FF32EE6321B6079A00CC3422 /* Info.plist */,
+				FF32EE7921B60C8000CC3422 /* lottieWatch.swift */,
 			);
 			path = lottieWatch;
 			sourceTree = "<group>";
@@ -104,10 +139,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FF32EE7321B6079A00CC3422 /* Build configuration list for PBXNativeTarget "lottieWatch" */;
 			buildPhases = (
+				4D046D686246624DDF7F6DF7 /* [CP] Check Pods Manifest.lock */,
 				FF32EE5A21B6079A00CC3422 /* Headers */,
 				FF32EE5B21B6079A00CC3422 /* Sources */,
 				FF32EE5C21B6079A00CC3422 /* Frameworks */,
 				FF32EE5D21B6079A00CC3422 /* Resources */,
+				DF1119FFFEE52FF86D4A926B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -122,9 +159,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FF32EE7621B6079A00CC3422 /* Build configuration list for PBXNativeTarget "lottieWatchTests" */;
 			buildPhases = (
+				A01C63A0E12E9028B1E2DE57 /* [CP] Check Pods Manifest.lock */,
 				FF32EE6421B6079A00CC3422 /* Sources */,
 				FF32EE6521B6079A00CC3422 /* Frameworks */,
 				FF32EE6621B6079A00CC3422 /* Resources */,
+				020756D395CE38C12867A341 /* [CP] Embed Pods Frameworks */,
+				358DE22958A2C5EDE740E205 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -148,6 +188,7 @@
 				TargetAttributes = {
 					FF32EE5E21B6079A00CC3422 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 					FF32EE6721B6079A00CC3422 = {
 						CreatedOnToolsVersion = 10.1;
@@ -189,11 +230,99 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		020756D395CE38C12867A341 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-lottieWatchTests/Pods-lottieWatchTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lottieWatchTests/Pods-lottieWatchTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		358DE22958A2C5EDE740E205 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lottieWatchTests/Pods-lottieWatchTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4D046D686246624DDF7F6DF7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-lottieWatch-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A01C63A0E12E9028B1E2DE57 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-lottieWatchTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF1119FFFEE52FF86D4A926B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lottieWatch/Pods-lottieWatch-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FF32EE5B21B6079A00CC3422 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF32EE7A21B60C8000CC3422 /* lottieWatch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,7 +469,9 @@
 		};
 		FF32EE7421B6079A00CC3422 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB6A5DD0A645BB2C3C28AC3D /* Pods-lottieWatch.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -357,6 +488,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = gravity.lottieWatch;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -364,7 +496,9 @@
 		};
 		FF32EE7521B6079A00CC3422 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15E44C52F186548CD709A1F2 /* Pods-lottieWatch.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -388,7 +522,9 @@
 		};
 		FF32EE7721B6079A00CC3422 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F70740EB169D9B7B2FE84795 /* Pods-lottieWatchTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = lottieWatchTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -405,7 +541,9 @@
 		};
 		FF32EE7821B6079A00CC3422 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1BBDCF97BA0C1F0E6D12BD9 /* Pods-lottieWatchTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = lottieWatchTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
