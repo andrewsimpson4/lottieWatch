@@ -11,7 +11,7 @@ import UIKit
 import Lottie
 import WatchConnectivity
 
-class LottieWatch: NSObject, WCSessionDelegate {
+class LWatch: NSObject, WCSessionDelegate {
     
     
     private var VC: UIViewController!
