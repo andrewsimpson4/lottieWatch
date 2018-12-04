@@ -29,7 +29,7 @@ s.framework = "WatchConnectivity"
 s.dependency 'lottie-ios'
 
 # 8
-s.source_files = "lottieWatch/lottieWatch.swift"
+s.source_files = "lottieWatch.swift"
 
 # 9
 s.resources = "lottieWatch/**/*.{png,jpeg,jpg,storyboard,xib,xcassets}"
