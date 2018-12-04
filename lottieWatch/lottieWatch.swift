@@ -22,7 +22,7 @@ public class LWatch: NSObject, WCSessionDelegate {
     private var c = 0.0
     private var frames = 20.0
     private var size: CGSize!
-    var lotCollection: [UIImage] = []
+    private var lotCollection: [UIImage] = []
     private var session : WCSession!
     private var done: (() -> Void)!
     
