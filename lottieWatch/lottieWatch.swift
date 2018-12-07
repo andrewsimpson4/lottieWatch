@@ -35,20 +35,20 @@ public class LWatch: NSObject, WCSessionDelegate {
         self.frames = Double(frames)
         self.size = size
         self.fileName = fileName
-       
-            print("DELAGATE!!!")
-            session.delegate = self
-            session.activate()
-            
-            watchConnectionStatus()
-            
+        
+        print("DELAGATE!!!")
+        session.delegate = self
+        session.activate()
+        
+        watchConnectionStatus()
         
         
-       self.lotView = LOTAnimationView(name: self.fileName)
-    
+        
+        self.lotView = LOTAnimationView(name: self.fileName)
+        
     }
     
-
+    
     
     private func watchConnectionStatus(){
         print("somthing")
@@ -62,15 +62,15 @@ public class LWatch: NSObject, WCSessionDelegate {
         self.done = finished
         self.lotView.frame = CGRect(x: -self.size.width, y: -self.size.height, width: self.size.width, height: self.size.height)
         self.VC.view.addSubview(self.lotView)
-
+        
         
         self.timer =  Timer.scheduledTimer(timeInterval: self.speed, target: self, selector:#selector(self.watchLot), userInfo: nil, repeats: true)
-
+        
     }
     
     
-   @objc private func watchLot() {
-
+    @objc private func watchLot() {
+        
         if (self.c > 1) {
             self.timer?.invalidate()
             self.sendToWatch()
@@ -85,7 +85,10 @@ public class LWatch: NSObject, WCSessionDelegate {
         for image in self.lotCollection {
             self.session.sendMessageData(image.pngData() ?? Data(), replyHandler: {(data) in
                 
-            }, errorHandler: nil)
+            }, errorHandler: {(error) in
+                print(error.localizedDescription)
+            })
+            
         }
     }
     
