@@ -95,7 +95,7 @@ public class LWatch: NSObject, WCSessionDelegate {
         }
     }
     
-    public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) { }
+    public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) { print( "PHONE ACTIVE!")}
     public func sessionDidBecomeInactive(_ session: WCSession) { }
     public func sessionDidDeactivate(_ session: WCSession) { }
     
