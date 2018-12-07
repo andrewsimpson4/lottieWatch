@@ -23,7 +23,7 @@ public class LWatch: NSObject, WCSessionDelegate {
     private var frames = 20.0
     private var size: CGSize!
     private var lotCollection: [UIImage] = []
-    private var session : WCSession!
+    private var session = WCSession.default
     private var done: (() -> Void)!
     
     public init(VC: UIViewController, fileName: String, loadSpeed: Double = 0.1, size: CGSize, frames: Int) {
@@ -35,7 +35,6 @@ public class LWatch: NSObject, WCSessionDelegate {
         self.fileName = fileName
         if WCSession.isSupported() {
             print("DELAGATE!!!")
-            session = WCSession.default
             session.delegate = self
             session.activate()
             
