@@ -27,7 +27,9 @@ public class LWatch: NSObject, WCSessionDelegate {
     private var done: (() -> Void)!
     
     public init(VC: UIViewController, fileName: String, loadSpeed: Double = 0.1, size: CGSize, frames: Int) {
+        print("ININTI")
         super.init()
+        print("ININTI2")
         self.VC = VC
         self.speed = loadSpeed
         self.frames = Double(frames)
