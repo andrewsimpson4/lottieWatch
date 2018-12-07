@@ -34,7 +34,7 @@ public class LWatch: NSObject, WCSessionDelegate {
         self.size = size
         self.fileName = fileName
         if WCSession.isSupported() {
-            
+            print("SUPORTED")
             session = WCSession.default
             session.delegate = self
             session.activate()
@@ -80,8 +80,11 @@ public class LWatch: NSObject, WCSessionDelegate {
         self.c = self.c + (1.0 / self.frames)
     }
     
-    private func sendToWatch() {
+    private func sendT
+        
+        oWatch() {
         for image in self.lotCollection {
+        
             self.session.sendMessageData(image.pngData() ?? Data(), replyHandler: {(data) in
                 
             }, errorHandler: nil)
