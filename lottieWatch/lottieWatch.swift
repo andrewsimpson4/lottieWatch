@@ -33,14 +33,14 @@ public class LWatch: NSObject, WCSessionDelegate {
         self.frames = Double(frames)
         self.size = size
         self.fileName = fileName
-        if WCSession.isSupported() {
+       
             print("DELAGATE!!!")
             session.delegate = self
             session.activate()
             
             watchConnectionStatus()
             
-        }
+        
         
        self.lotView = LOTAnimationView(name: self.fileName)
     
