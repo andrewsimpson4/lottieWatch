@@ -51,7 +51,7 @@ public class LWatch: NSObject, WCSessionDelegate {
 
     
     private func watchConnectionStatus(){
-        
+        print("somthing")
         print("isPaired",session.isPaired)
         print("session.isWatchAppInstalled",session.isWatchAppInstalled)
         print(session.watchDirectoryURL)
