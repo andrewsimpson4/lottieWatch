@@ -29,6 +29,7 @@ public class LWatchConnection: NSObject, WCSessionDelegate {
     
     public func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
         print("got request")
+        print(message)
         if (message["request"] as! String == "all") {
             print("all")
             for file in self.files {
