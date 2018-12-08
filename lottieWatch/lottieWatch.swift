@@ -44,7 +44,7 @@ public class LWatch: NSObject, WCSessionDelegate {
         
         self.lotView = LOTAnimationView(name: self.fileName)
         
-        UserDefaults.standard.set(false, forKey: self.fileName + "Saved")
+        // UserDefaults.standard.set(false, forKey: self.fileName + "Saved")
         
     }
     
