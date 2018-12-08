@@ -44,7 +44,7 @@ public class LWatch: NSObject, WCSessionDelegate {
         
         self.lotView = LOTAnimationView(name: self.fileName)
         
-        //try UserDefaults.standard.object(forKey: self.fileName + "Saved") as! Bool
+        UserDefaults.standard.set(false, forKey: self.fileName + "Saved")
         
     }
     
@@ -68,6 +68,8 @@ public class LWatch: NSObject, WCSessionDelegate {
                 self.timer =  Timer.scheduledTimer(timeInterval: self.speed, target: self, selector:#selector(self.watchLot), userInfo: nil, repeats: true)
             }else {
                 print("saved")
+                self.loadSavedImages()
+                self.done()
             }
         } else {
             print("not saved")
@@ -76,6 +78,20 @@ public class LWatch: NSObject, WCSessionDelegate {
             self.timer =  Timer.scheduledTimer(timeInterval: self.speed, target: self, selector:#selector(self.watchLot), userInfo: nil, repeats: true)
         }
         
+    }
+    
+    func loadSavedImages() {
+        let savedCount = UserDefaults.standard.object(forKey: self.fileName + "SavedCount") as! Int
+        for i in 0...(savedCount-1) {
+            self.lotCollection.append(getSavedImage(named: self.fileName + String(i) + ".png") ?? UIImage())
+        }
+    }
+    
+    func getSavedImage(named: String) -> UIImage? {
+        if let dir = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {
+            return UIImage(contentsOfFile: URL(fileURLWithPath: dir.absoluteString).appendingPathComponent(named).path)
+        }
+        return nil
     }
     
     
@@ -90,6 +106,7 @@ public class LWatch: NSObject, WCSessionDelegate {
                 let gotIt = saveImage(image: im, i: count)
                 if (gotIt == true && count == self.lotCollection.count - 1) {
                     UserDefaults.standard.set(true, forKey: (self.fileName + "Saved"))
+                    UserDefaults.standard.set(self.lotCollection.count, forKey: (self.fileName + "SavedCount"))
                     print("SAVED")
                     break
                 }
