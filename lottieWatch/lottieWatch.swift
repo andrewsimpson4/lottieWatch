@@ -42,8 +42,6 @@ public class LWatch: NSObject, WCSessionDelegate {
         
         watchConnectionStatus()
         
-        
-        
         self.lotView = LOTAnimationView(name: self.fileName)
         
     }
@@ -60,11 +58,15 @@ public class LWatch: NSObject, WCSessionDelegate {
     
     public func load(finished: @escaping (() -> Void)) {
         self.done = finished
-        self.lotView.frame = CGRect(x: -self.size.width, y: -self.size.height, width: self.size.width, height: self.size.height)
-        self.VC.view.addSubview(self.lotView)
-        
-        
-        self.timer =  Timer.scheduledTimer(timeInterval: self.speed, target: self, selector:#selector(self.watchLot), userInfo: nil, repeats: true)
+        let isSaved = UserDefaults.standard.object(forKey: self.fileName + "Saved") as! Bool
+        if (!isSaved) {
+            print("not saved")
+            self.lotView.frame = CGRect(x: -self.size.width, y: -self.size.height, width: self.size.width, height: self.size.height)
+            self.VC.view.addSubview(self.lotView)
+            self.timer =  Timer.scheduledTimer(timeInterval: self.speed, target: self, selector:#selector(self.watchLot), userInfo: nil, repeats: true)
+        }else {
+            print("saved")
+        }
         
     }
     
@@ -75,6 +77,16 @@ public class LWatch: NSObject, WCSessionDelegate {
             self.timer?.invalidate()
             self.sendToWatch()
             self.done()
+            var count = 0
+            for im in self.lotCollection {
+                let gotIt = saveImage(image: im, i: count)
+                if (gotIt == true && count == self.lotCollection.count - 1) {
+                    UserDefaults.standard.set(true, forKey: (self.fileName + "Saved"))
+                    print("SAVED")
+                    break
+                }
+                count += 1
+            }
         }
         self.lotCollection.append(self.shootView(vi: lotView))
         lotView.play(fromProgress: CGFloat(self.c), toProgress: CGFloat(self.c), withCompletion: nil)
@@ -97,6 +109,19 @@ public class LWatch: NSObject, WCSessionDelegate {
         return renderer.image { rendererContext in
             vi.layer.render(in: rendererContext.cgContext)
         }
+    }
+    
+    func saveImage(image: UIImage, i: Int) -> Bool {
+        let data = image.pngData() // UIImageJPEGRepresentation(image, 1) ?? UIImagePNGRepresentation(image) else {
+        let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL
+        do {
+            try data?.write(to: directory?.appendingPathComponent(self.fileName + String(i) + ".png")! ?? URL(fileURLWithPath: "blank.png"))
+            return true
+        } catch {
+            return false
+        }
+    
+         
     }
     
     public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) { print( "PHONE ACTIVE!")}
