@@ -11,7 +11,7 @@ import UIKit
 import Lottie
 import WatchConnectivity
 
-public class LWatch: NSObject, WCSessionDelegate {
+public class LWatch: NSObject {
     
     
     private var VC: UIViewController!
@@ -23,7 +23,6 @@ public class LWatch: NSObject, WCSessionDelegate {
     private var frames = 20.0
     private var size: CGSize!
     private var lotCollection: [UIImage] = []
-    private var session = WCSession.default
     private var done: (() -> Void)!
     
     public init(VC: UIViewController, fileName: String, loadSpeed: Double = 0.1, size: CGSize, frames: Int) {
@@ -36,11 +35,11 @@ public class LWatch: NSObject, WCSessionDelegate {
         self.size = size
         self.fileName = fileName
         
-        print("DELAGATE!!!")
-        session.delegate = self
-        session.activate()
+//        print("DELAGATE!!!")
+//        session.delegate = self
+//        session.activate()
         
-        watchConnectionStatus()
+
         
         self.lotView = LOTAnimationView(name: self.fileName)
         
@@ -50,13 +49,7 @@ public class LWatch: NSObject, WCSessionDelegate {
     
     
     
-    private func watchConnectionStatus(){
-        print("somthing")
-        print("isPaired",session.isPaired)
-        print("session.isWatchAppInstalled",session.isWatchAppInstalled)
-        print(session.watchDirectoryURL)
-        
-    }
+   
     
     public func load(finished: @escaping (() -> Void)) {
         self.done = finished
@@ -68,7 +61,7 @@ public class LWatch: NSObject, WCSessionDelegate {
                 self.timer =  Timer.scheduledTimer(timeInterval: self.speed, target: self, selector:#selector(self.watchLot), userInfo: nil, repeats: true)
             }else {
                 print("saved")
-                self.loadSavedImages()
+                //self.loadSavedImages()
                 self.done()
             }
         } else {
@@ -80,27 +73,27 @@ public class LWatch: NSObject, WCSessionDelegate {
         
     }
     
-    func loadSavedImages() {
-        let savedCount = UserDefaults.standard.object(forKey: self.fileName + "SavedCount") as! Int
-        for i in 0...(savedCount-1) {
-            self.lotCollection.append(getSavedImage(named: self.fileName + String(i) + ".png") ?? UIImage())
-        }
-    }
+//    func loadSavedImages() {
+//        let savedCount = UserDefaults.standard.object(forKey: self.fileName + "SavedCount") as! Int
+//        for i in 0...(savedCount-1) {
+//            self.lotCollection.append(getSavedImage(named: self.fileName + String(i) + ".png") ?? UIImage())
+//        }
+//    }
     
-    func getSavedImage(named: String) -> UIImage? {
-        if let dir = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {
-            return UIImage(contentsOfFile: URL(fileURLWithPath: dir.absoluteString).appendingPathComponent(named).path)
-        }
-        return nil
-    }
+//    func getSavedImage(named: String) -> UIImage? {
+//        if let dir = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {
+//            return UIImage(contentsOfFile: URL(fileURLWithPath: dir.absoluteString).appendingPathComponent(named).path)
+//        }
+//        return nil
+//    }
     
     
     @objc private func watchLot() {
         
         if (self.c > 1) {
             self.timer?.invalidate()
-            self.sendToWatch()
-            self.done()
+//            self.sendToWatch()
+           
             var count = 0
             for im in self.lotCollection {
                 let gotIt = saveImage(image: im, i: count)
@@ -112,22 +105,23 @@ public class LWatch: NSObject, WCSessionDelegate {
                 }
                 count += 1
             }
+            self.done()
         }
         self.lotCollection.append(self.shootView(vi: lotView))
         lotView.play(fromProgress: CGFloat(self.c), toProgress: CGFloat(self.c), withCompletion: nil)
         self.c = self.c + (1.0 / self.frames)
     }
     
-    private func sendToWatch() {
-        for image in self.lotCollection {
-            self.session.sendMessageData(image.pngData() ?? Data(), replyHandler: {(data) in
-                
-            }, errorHandler: {(error) in
-                print(error.localizedDescription)
-            })
-            
-        }
-    }
+//    private func sendToWatch() {
+//        for image in self.lotCollection {
+//            self.session.sendMessageData(image.pngData() ?? Data(), replyHandler: {(data) in
+//
+//            }, errorHandler: {(error) in
+//                print(error.localizedDescription)
+//            })
+//
+//        }
+//    }
     
     private func shootView(vi:UIView) -> UIImage {
         let renderer = UIGraphicsImageRenderer(bounds: vi.bounds)
@@ -149,9 +143,6 @@ public class LWatch: NSObject, WCSessionDelegate {
          
     }
     
-    public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) { print( "PHONE ACTIVE!")}
-    public func sessionDidBecomeInactive(_ session: WCSession) { }
-    public func sessionDidDeactivate(_ session: WCSession) { }
     
     
     
