@@ -68,6 +68,7 @@ public class LWatchConnection: NSObject, WCSessionDelegate {
     
     func getSavedImage(named: String) -> UIImage? {
         if let dir = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {
+            print("getting image")
             return UIImage(contentsOfFile: URL(fileURLWithPath: dir.absoluteString).appendingPathComponent(named).path)
         }
         return nil
