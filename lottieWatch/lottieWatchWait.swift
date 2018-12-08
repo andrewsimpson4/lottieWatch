@@ -30,10 +30,14 @@ public class LWatchConnection: NSObject, WCSessionDelegate {
     public func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
         print("got request")
         if (message["request"] as! String == "all") {
+            print("all")
             for file in self.files {
+                print(file)
                 if let isSaved = UserDefaults.standard.object(forKey: file + "Saved") {
+                    print(isSaved)
                     if (isSaved as! Bool) {
                         loadSavedImages(file: file)
+                        print(self.allLots)
                         replyHandler(allLots)
                     }
                 }
@@ -54,7 +58,9 @@ public class LWatchConnection: NSObject, WCSessionDelegate {
     
     func loadSavedImages(file: String) {
         let savedCount = UserDefaults.standard.object(forKey: file + "SavedCount") as! Int
+        print(savedCount)
             for i in 0...(savedCount-1) {
+                print(file + String(i) + ".png")
                 self.allLots[file]?.append(getSavedImage(named: file + String(i) + ".png") ?? UIImage())
             }
     }
