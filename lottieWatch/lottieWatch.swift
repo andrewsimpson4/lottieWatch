@@ -44,6 +44,8 @@ public class LWatch: NSObject, WCSessionDelegate {
         
         self.lotView = LOTAnimationView(name: self.fileName)
         
+        //try UserDefaults.standard.object(forKey: self.fileName + "Saved") as! Bool
+        
     }
     
     
@@ -58,14 +60,20 @@ public class LWatch: NSObject, WCSessionDelegate {
     
     public func load(finished: @escaping (() -> Void)) {
         self.done = finished
-        let isSaved = UserDefaults.standard.object(forKey: self.fileName + "Saved") as! Bool
-        if (!isSaved) {
+        if let isSaved = UserDefaults.standard.object(forKey: self.fileName + "Saved") {
+            if (!(isSaved as! Bool)) {
+                print("not saved")
+                self.lotView.frame = CGRect(x: -self.size.width, y: -self.size.height, width: self.size.width, height: self.size.height)
+                self.VC.view.addSubview(self.lotView)
+                self.timer =  Timer.scheduledTimer(timeInterval: self.speed, target: self, selector:#selector(self.watchLot), userInfo: nil, repeats: true)
+            }else {
+                print("saved")
+            }
+        } else {
             print("not saved")
             self.lotView.frame = CGRect(x: -self.size.width, y: -self.size.height, width: self.size.width, height: self.size.height)
             self.VC.view.addSubview(self.lotView)
             self.timer =  Timer.scheduledTimer(timeInterval: self.speed, target: self, selector:#selector(self.watchLot), userInfo: nil, repeats: true)
-        }else {
-            print("saved")
         }
         
     }
